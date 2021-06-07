@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Vue App</title>
+<!----Axios--->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!---Vue JS--->
+<script src="vue.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+body{font-family: 'Rubik', sans-serif;}
+*{ margin:0; padding:0; box-sizing:border-box;}
+h1{ font-size:20px; margin-bottom:10px;}
+h2{ font-size:14px; color:#5b62a6; margin-top:10px;}
+.prgWrap{ width:1024px; max-width:1440px; margin:auto; background-color:#f2f2f2; padding:10px;}
+.prgInn{display:flex;}
+.prgLeft{ flex:1;}
+.sortTabSec{}
+.prgRight{ flex:4; /*display:flex;*/}
+.prgRight .prgCol{ width:190px; flex:1; display:inline-block; background-color:#fff; border-radius:5px; padding:10px; margin-left:10px; margin-bottom:10px;}
+.prgRight .prgCol img{ width:100%;}
+.prgRight .prgCol:first-child{ margin-left:0;}
+.prgRight .prgCol:nth-child(4n+1){ margin-left:0;}
+.prgData{ margin-top:10px;}
+.prgData table tr th{ font-size:12px; text-align:left; padding-bottom:10px;}
+.prgData table tr td{ font-size:12px; font-weight:400; text-align:left; padding-bottom:10px;}
+</style>
+</head>
+
+<body>
+	<div id="root">
+    	
+       <div class="prgWrap">
+       <h1>SpaceX Launch Programs</h1>
+       <div class="prgInn">
+            <div class="prgLeft">
+            	<h3>Filters</h3>
+                <div class="sortTabSec">
+                	<h4>Launch Year</h4>
+                    <table>
+                    	<tr>
+                        	<td><span>2006</span></td>
+                            <td><span>2007</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="prgRight">
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[0].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[0].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[0].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[0].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[0].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[0].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[1].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[1].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[1].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[1].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[1].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[1].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[2].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[2].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[2].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[2].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[2].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[2].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[3].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[3].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[3].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[3].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[3].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[3].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[4].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[4].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[4].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[4].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[4].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[4].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[5].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[5].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[5].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[5].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[5].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[5].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="prgCol">
+                    <div>
+                        <img :src="userData[6].links.mission_patch" alt="image 1" />
+                    </div>
+                    <h2>{{userData[6].mission_name}}</h2>
+                    <div class="prgData">
+                        <table>
+                            <tr>
+                                <th>Mission Ids:</th>
+                                <td>{{userData[6].mission_id}}</td>
+                            </tr>
+                            <tr>
+                                <th>Launch Year:</th>
+                                <td>{{userData[6].launch_year}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Launch:</th>
+                                <td>{{userData[6].launch_success}}</td>
+                            </tr>
+                            <tr>
+                                <th>Successful Landing:</th>
+                                <td>{{userData[6].details}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    
+    <script>
+		var x = new Vue({
+			el:"#root",
+			data:{
+				
+				userData:[],
+				msg: 'Hi this is my first API Fetch program',
+				
+			},
+			mounted() {
+				//var self = this;
+				axios.get('https://api.spacexdata.com/v3/launches?limit=100&amp;launch_success=true')
+				.then(response => {
+					// handle success
+					this.userData = response.data;
+					console.log(this.userData);
+				})
+				.catch(error => {
+					// handle error
+					console.log(error);
+				})
+			}
+			
+		})
+		
+    </script>
+</body>
+<!--<script src="custom.js"></script>-->
+</html>
